@@ -1,5 +1,8 @@
 import 'package:bat_foundation/constants.dart/app_colors.dart';
 import 'package:bat_foundation/features/home/presentation/widgets/about_us_tab_page.dart';
+import 'package:bat_foundation/features/home/presentation/widgets/event_tab_page.dart';
+import 'package:bat_foundation/features/home/presentation/widgets/media_center_tab_page.dart';
+import 'package:bat_foundation/features/home/presentation/widgets/projects_tab_page.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -45,34 +48,33 @@ class _HomePageState extends State<HomePage>
               indicatorWeight: 3,
               indicatorColor: AppColors.primary,
               indicatorPadding: const EdgeInsets.all(0),
-              tabs: [
+              tabs: const [
                 Tab(
-                  child: GestureDetector(
-                    onTap: () {
-                      print("hi");
-                    },
-                    child: const TextWidget(
-                      text: "About Us",
-                      fontSize: 14,
-                    ),
+                  child: TextWidget(
+                    text: "About Us",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                const Tab(
+                Tab(
                     child: TextWidget(
                   text: "Projects",
                   textAlign: TextAlign.center,
                   fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 )),
-                const Tab(
+                Tab(
                     child: TextWidget(
                   text: "Media Center",
                   textAlign: TextAlign.center,
                   fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 )),
-                const Tab(
+                Tab(
                     child: TextWidget(
                   text: "Events",
                   fontSize: 14,
+                  fontWeight: FontWeight.w500,
                 )),
               ],
             ),
@@ -84,9 +86,9 @@ class _HomePageState extends State<HomePage>
                   controller: controller,
                   children: const [
                     AboutUsTabPage(),
-                    Icon(Icons.directions_transit),
-                    Icon(Icons.directions_bike),
-                    Icon(Icons.directions_bike),
+                    ProjectsTabPage(),
+                    MediaCenterTabPage(),
+                    EventTabPage(),
                   ],
                 ),
               ),

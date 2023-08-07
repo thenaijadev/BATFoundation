@@ -30,8 +30,6 @@ class CarouselCard extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: -2,
-            // you can animate the radius to make the feeling of cards
-            // 'coming closer to you' stronger
             blurRadius: 16,
             offset: const Offset(0, 8),
           ),
