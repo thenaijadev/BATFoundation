@@ -65,17 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Container(
-              height: 250,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage("https://picsum.photos/id/237/200/300"),
-                    fit: BoxFit.cover),
-              ),
-            ),
             const SizedBox(
-              height: 50,
+              height: 30,
             ),
             _widgetOptions.elementAt(_selectedIndex)
           ],
