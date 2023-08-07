@@ -6,16 +6,19 @@ class NewsItem extends StatelessWidget {
       {super.key,
       required this.image,
       required this.title,
-      required this.subTitle});
+      required this.subTitle,
+      this.textDirection});
   final ImageProvider<Object> image;
   final String title;
   final String subTitle;
+  final TextDirection? textDirection;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        textDirection: textDirection,
         children: [
           Container(
             width: 150,

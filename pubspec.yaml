@@ -45,6 +45,7 @@ dependencies:
   dartz: ^0.10.1
   lottie: ^2.5.0
   expandable_page_view: ^1.0.17
+  anim_search_bar: ^2.0.3
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,7 @@
 import 'package:bat_foundation/constants.dart/app_colors.dart';
+import 'package:bat_foundation/features/home/presentation/screens/events_screen.dart';
+import 'package:bat_foundation/features/home/presentation/screens/media_center_screen.dart';
+import 'package:bat_foundation/features/home/presentation/screens/project_screen.dart';
 import 'package:bat_foundation/features/home/presentation/widgets/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,18 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    ProjectScreen(),
+    EventsScreen(),
+    MediaCenterScreen(),
   ];
 
   void _onItemTapped(int index) {
