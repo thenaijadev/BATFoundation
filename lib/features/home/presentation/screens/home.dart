@@ -1,6 +1,5 @@
 import 'package:bat_foundation/constants.dart/app_colors.dart';
 import 'package:bat_foundation/features/home/presentation/widgets/home_page.dart';
-import 'package:bat_foundation/router/routes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,37 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 22.0, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    "assets/images/logo.png",
-                    width: 50,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.menu);
-                    },
-                    child: Transform.scale(
-                      scale: 1.2,
-                      child: Image.asset("assets/images/menu.png"),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            _widgetOptions.elementAt(_selectedIndex)
-          ],
-        ),
+      body: ListView(
+        children: [_widgetOptions.elementAt(_selectedIndex)],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
