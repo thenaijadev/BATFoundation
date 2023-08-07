@@ -205,7 +205,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         Navigator.pushNamed(context, Routes.login);
                       },
                       child: const TextWidget(
-                        text: "Login",
+                        text: "Register",
                         color: Color.fromARGB(255, 0, 80, 146),
                       ),
                     ),

@@ -124,28 +124,28 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  const Expanded(
-                    child: TextWidget(
-                        fontSize: 14,
-                        text: "Do you accept our terms and conditions"),
-                  ),
-                  Transform.scale(
-                    scale: 1.3,
-                    child: Checkbox(
-                        side: const BorderSide(width: 1, color: Colors.grey),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6)),
-                        value: checkBoxValueTwo,
-                        onChanged: (val) {
-                          setState(() {
-                            checkBoxValueTwo = val;
-                          });
-                        }),
-                  ),
-                ],
-              )
+              // Row(
+              //   children: [
+              //     const Expanded(
+              //       child: TextWidget(
+              //           fontSize: 14,
+              //           text: "Do you accept our terms and conditions"),
+              //     ),
+              //     Transform.scale(
+              //       scale: 1.3,
+              //       child: Checkbox(
+              //           side: const BorderSide(width: 1, color: Colors.grey),
+              //           shape: RoundedRectangleBorder(
+              //               borderRadius: BorderRadius.circular(6)),
+              //           value: checkBoxValueTwo,
+              //           onChanged: (val) {
+              //             setState(() {
+              //               checkBoxValueTwo = val;
+              //             });
+              //           }),
+              //     ),
+              //   ],
+              // )
             ],
           ),
         ),
