@@ -2,7 +2,6 @@ import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:bat_foundation/features/home/presentation/widgets/news_items_list.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class MediaCenterScreen extends StatefulWidget {
   const MediaCenterScreen({super.key});
@@ -20,24 +19,18 @@ class _MediaCenterScreenState extends State<MediaCenterScreen> {
         Stack(
           alignment: AlignmentDirectional.centerStart,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 12.0),
-                  child: Icon(Icons.arrow_back),
-                ),
-                const Expanded(child: SizedBox()),
-                Transform.translate(
-                  offset: const Offset(-15, 0),
-                  child: const TextWidget(
+            const Padding(
+              padding: EdgeInsets.only(left: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextWidget(
                     text: "Media Center",
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
-                ),
-                const Expanded(child: SizedBox()),
-              ],
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
