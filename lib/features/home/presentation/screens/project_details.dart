@@ -1,4 +1,3 @@
-import 'package:bat_foundation/universal.dart/main_btn.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +50,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                 child: ListView(
                   children: [
                     const TextWidget(
-                      text: "Global Standardization",
+                      text: "Enterprise development.",
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                       textAlign: TextAlign.start,
@@ -61,52 +60,77 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     ),
                     const TextWidget(
                       text:
-                          "Capacity building trains farmers on agricultural practices for maximum yield, involving both participating and non-participating farmers in the project locality. (Still maintain video on app)",
-                      fontSize: 18,
+                          "CThe Enterprise Development Programme (EDP) fosters economic opportunities for rural farmers throughout the value chain. This model offers support to agri-preneurs, enabling them to establish, build, and expand their businesses sustainably. The EDP encompasses both crop and aquaculture farming promotion. (Still maintain video on app)",
+                      fontSize: 17,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    const Row(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.calendar_month),
-                        TextWidget(text: "Date")
+                        SizedBox(
+                          child: Row(
+                            children: [
+                              Image.asset("assets/images/start_icon.png"),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const TextWidget(
+                                text: "Start date",
+                                fontSize: 12,
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          child: Row(
+                            children: [
+                              const TextWidget(
+                                text: "End Date",
+                                fontSize: 12,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Image.asset("assets/images/end_icon.png"),
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const TextWidget(text: "Thursday, July 20, 2023"),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Row(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.access_time_filled_rounded),
-                        TextWidget(text: "Time")
+                        const TextWidget(
+                          text: "Thu 1st Dec. 2022",
+                          fontSize: 12,
+                        ),
+                        Image.asset("assets/images/arrow.png"),
+                        const TextWidget(
+                          text: "Sat 10th Dec. 2022",
+                          fontSize: 12,
+                        ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const TextWidget(text: "11:00 AM"),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Row(
-                      children: [
-                        Icon(Icons.location_on),
-                        TextWidget(text: "Venue")
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const TextWidget(text: "HQ Ikeja Lagos"),
                     const SizedBox(
                       height: 50,
                     ),
-                    MainButton(onTap: () {}, label: "Register")
+                    const Row(
+                      children: [
+                        Icon(
+                          Icons.location_on,
+                          size: 14,
+                        ),
+                        TextWidget(
+                          text: "Lagos",
+                          fontSize: 14,
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
                   ],
                 ),
               ),
