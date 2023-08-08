@@ -2,6 +2,7 @@ import 'package:bat_foundation/features/authentication/presentation/Screens/emai
 import 'package:bat_foundation/features/authentication/presentation/Screens/login_screen.dart';
 import 'package:bat_foundation/features/authentication/presentation/Screens/profile_details_screen.dart';
 import 'package:bat_foundation/features/authentication/presentation/Screens/registration_screen.dart';
+import 'package:bat_foundation/features/home/presentation/screens/contact_us.dart';
 import 'package:bat_foundation/features/home/presentation/screens/home.dart';
 import 'package:bat_foundation/features/home/presentation/screens/menu.dart';
 import 'package:bat_foundation/features/onboarding/screens/onboarding_screen.dart';
@@ -44,6 +45,10 @@ class AppRouter {
       case Routes.home:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+        );
+      case Routes.contactUs:
+        return MaterialPageRoute(
+          builder: (_) => const ContactUsScreen(),
         );
 
       case Routes.menu:

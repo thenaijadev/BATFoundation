@@ -1,4 +1,5 @@
 import 'package:bat_foundation/features/home/presentation/widgets/menu_item.dart';
+import 'package:bat_foundation/router/routes.dart';
 import 'package:bat_foundation/universal.dart/image_widget.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -77,11 +78,16 @@ class _MenuScreenState extends State<MenuScreen> {
                   width: 30,
                 ),
               ),
-              const MenuItem(
-                label: "Contact Us",
-                icon: Icon(
-                  Icons.arrow_forward,
-                  size: 30,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.contactUs);
+                },
+                child: const MenuItem(
+                  label: "Contact Us",
+                  icon: Icon(
+                    Icons.arrow_forward,
+                    size: 30,
+                  ),
                 ),
               ),
               const MenuItem(
