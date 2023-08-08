@@ -7,6 +7,7 @@ import 'package:bat_foundation/features/home/presentation/screens/event_details.
 import 'package:bat_foundation/features/home/presentation/screens/home.dart';
 import 'package:bat_foundation/features/home/presentation/screens/media_center_details.dart';
 import 'package:bat_foundation/features/home/presentation/screens/menu.dart';
+import 'package:bat_foundation/features/home/presentation/screens/project_details.dart';
 import 'package:bat_foundation/features/onboarding/screens/onboarding_screen.dart';
 import 'package:bat_foundation/router/routes.dart';
 import 'package:bat_foundation/universal.dart/error_screen.dart';
@@ -61,6 +62,10 @@ class AppRouter {
       case Routes.eventDetails:
         return MaterialPageRoute(
           builder: (_) => const EventDetails(),
+        );
+      case Routes.projectDetails:
+        return MaterialPageRoute(
+          builder: (_) => const ProjectDetails(),
         );
 
       case Routes.menu:

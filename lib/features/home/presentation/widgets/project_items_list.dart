@@ -1,4 +1,5 @@
 import 'package:bat_foundation/features/home/presentation/widgets/news_item.dart';
+import 'package:bat_foundation/router/routes.dart';
 import 'package:flutter/material.dart';
 
 class ProjectItemsList extends StatelessWidget {
@@ -6,11 +7,22 @@ class ProjectItemsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(right: 15.0),
+    return Padding(
+      padding: const EdgeInsets.only(right: 15.0),
       child: Column(
         children: [
-          NewsItem(
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, Routes.projectDetails),
+            child: const NewsItem(
+                textDirection: TextDirection.rtl,
+                image: AssetImage(
+                  "assets/images/events.jpg",
+                ),
+                title: "Farmers Market",
+                subTitle:
+                    "Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate"),
+          ),
+          const NewsItem(
               textDirection: TextDirection.rtl,
               image: AssetImage(
                 "assets/images/events.jpg",
@@ -18,7 +30,7 @@ class ProjectItemsList extends StatelessWidget {
               title: "Farmers Market",
               subTitle:
                   "Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate"),
-          NewsItem(
+          const NewsItem(
               textDirection: TextDirection.rtl,
               image: AssetImage(
                 "assets/images/events.jpg",
@@ -26,15 +38,7 @@ class ProjectItemsList extends StatelessWidget {
               title: "Farmers Market",
               subTitle:
                   "Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate"),
-          NewsItem(
-              textDirection: TextDirection.rtl,
-              image: AssetImage(
-                "assets/images/events.jpg",
-              ),
-              title: "Farmers Market",
-              subTitle:
-                  "Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate"),
-          NewsItem(
+          const NewsItem(
               textDirection: TextDirection.rtl,
               image: AssetImage(
                 "assets/images/events.jpg",

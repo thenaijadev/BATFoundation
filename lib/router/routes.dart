@@ -9,4 +9,5 @@ class Routes {
   static const String contactUs = '/contactUs';
   static const String mediaItemsCenter = '/mediaItemsCenter';
   static const String eventDetails = '/eventDetails';
+  static const String projectDetails = '/projectDetails';
 }
