@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage>
           ),
         ),
         Container(
-          height: 200,
+          height: 250,
           width: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
