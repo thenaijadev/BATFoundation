@@ -1,14 +1,14 @@
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class MediaCenterDetails extends StatefulWidget {
-  const MediaCenterDetails({super.key});
+class EventDetails extends StatefulWidget {
+  const EventDetails({super.key});
 
   @override
-  State<MediaCenterDetails> createState() => _MediaCenterDetailsState();
+  State<EventDetails> createState() => _EventDetailsState();
 }
 
-class _MediaCenterDetailsState extends State<MediaCenterDetails> {
+class _EventDetailsState extends State<EventDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

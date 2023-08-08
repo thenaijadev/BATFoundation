@@ -3,6 +3,7 @@ import 'package:bat_foundation/features/authentication/presentation/Screens/logi
 import 'package:bat_foundation/features/authentication/presentation/Screens/profile_details_screen.dart';
 import 'package:bat_foundation/features/authentication/presentation/Screens/registration_screen.dart';
 import 'package:bat_foundation/features/home/presentation/screens/contact_us.dart';
+import 'package:bat_foundation/features/home/presentation/screens/event_details.dart';
 import 'package:bat_foundation/features/home/presentation/screens/home.dart';
 import 'package:bat_foundation/features/home/presentation/screens/media_center_details.dart';
 import 'package:bat_foundation/features/home/presentation/screens/menu.dart';
@@ -55,6 +56,11 @@ class AppRouter {
       case Routes.mediaItemsCenter:
         return MaterialPageRoute(
           builder: (_) => const MediaCenterDetails(),
+        );
+
+      case Routes.eventDetails:
+        return MaterialPageRoute(
+          builder: (_) => const EventDetails(),
         );
 
       case Routes.menu:

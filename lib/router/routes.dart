@@ -8,4 +8,5 @@ class Routes {
   static const String menu = '/menu';
   static const String contactUs = '/contactUs';
   static const String mediaItemsCenter = '/mediaItemsCenter';
+  static const String eventDetails = '/eventDetails';
 }
