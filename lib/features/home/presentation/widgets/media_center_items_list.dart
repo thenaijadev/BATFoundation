@@ -13,7 +13,7 @@ class MediaCenterItemsList extends StatelessWidget {
         children: [
           NewsItem(
               onTap: () {
-                Navigator.pushNamed(context, Routes.mediaItemsCenter);
+                Navigator.pushNamed(context, Routes.mediaItemsCenterDetails);
               },
               textDirection: TextDirection.rtl,
               image: const AssetImage(

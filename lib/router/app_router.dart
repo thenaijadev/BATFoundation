@@ -54,7 +54,7 @@ class AppRouter {
           builder: (_) => const ContactUsScreen(),
         );
 
-      case Routes.mediaItemsCenter:
+      case Routes.mediaItemsCenterDetails:
         return MaterialPageRoute(
           builder: (_) => const MediaCenterDetails(),
         );

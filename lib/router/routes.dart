@@ -7,7 +7,7 @@ class Routes {
   static const String home = '/home';
   static const String menu = '/menu';
   static const String contactUs = '/contactUs';
-  static const String mediaItemsCenter = '/mediaItemsCenter';
+  static const String mediaItemsCenterDetails = '/mediaItemsCenter';
   static const String eventDetails = '/eventDetails';
   static const String projectDetails = '/projectDetails';
 }

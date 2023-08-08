@@ -1,5 +1,6 @@
 import 'package:bat_foundation/features/home/presentation/widgets/news_item.dart';
 import 'package:bat_foundation/features/home/presentation/widgets/see_all_button.dart';
+import 'package:bat_foundation/router/routes.dart';
 import 'package:flutter/material.dart';
 
 class ProjectsTabPage extends StatefulWidget {
@@ -16,27 +17,33 @@ class _ProjectsTabPageState extends State<ProjectsTabPage> {
       padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
       child: Column(
         children: [
-          const Flexible(
+          Flexible(
             child: NewsItem(
-                image: AssetImage(
+                onTap: () =>
+                    Navigator.pushNamed(context, Routes.projectDetails),
+                image: const AssetImage(
                   "assets/images/events.jpg",
                 ),
                 title: "Farmers Market",
                 subTitle:
                     "Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate"),
           ),
-          const Flexible(
+          Flexible(
             child: NewsItem(
-                image: AssetImage(
+                onTap: () =>
+                    Navigator.pushNamed(context, Routes.projectDetails),
+                image: const AssetImage(
                   "assets/images/events.jpg",
                 ),
                 title: "Farmers Market",
                 subTitle:
                     "Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate"),
           ),
-          const Flexible(
+          Flexible(
             child: NewsItem(
-                image: AssetImage(
+                onTap: () =>
+                    Navigator.pushNamed(context, Routes.projectDetails),
+                image: const AssetImage(
                   "assets/images/events.jpg",
                 ),
                 title: "Farmers Market",
