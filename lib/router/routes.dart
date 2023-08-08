@@ -10,4 +10,5 @@ class Routes {
   static const String mediaItemsCenterDetails = '/mediaItemsCenter';
   static const String eventDetails = '/eventDetails';
   static const String projectDetails = '/projectDetails';
+  static const String forgotPassword = '/forgotPassword';
 }

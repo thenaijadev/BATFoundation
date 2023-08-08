@@ -35,25 +35,27 @@ class NewsItem extends StatelessWidget {
             const SizedBox(
               width: 15,
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextWidget(
-                  text: title,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                SizedBox(
-                  width: 190,
-                  child: TextWidget(
-                    text: subTitle,
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextWidget(
+                    text: title,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
                   ),
-                )
-              ],
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    width: 190,
+                    child: TextWidget(
+                      text: subTitle,
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),

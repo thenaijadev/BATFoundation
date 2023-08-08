@@ -1,10 +1,12 @@
 import 'package:bat_foundation/features/authentication/bloc/auth_bloc.dart';
 import 'package:bat_foundation/features/authentication/presentation/widgets/text_field_widget.dart';
+import 'package:bat_foundation/features/home/presentation/widgets/flush_bar.dart';
 import 'package:bat_foundation/router/routes.dart';
 import 'package:bat_foundation/universal.dart/loader.dart';
 import 'package:bat_foundation/universal.dart/main_btn.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:bat_foundation/universal.dart/snackbar.dart';
+import 'package:bat_foundation/utilities/local_session_manager/local_session_manager.dart';
 import 'package:bat_foundation/utilities/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final formfieldkey_1 = GlobalKey<FormFieldState>();
 
   final formfieldkey_2 = GlobalKey<FormFieldState>();
-
   @override
   void dispose() {
     _textEditingController_1.dispose();
@@ -103,7 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, Routes.forgotPassword);
+                            },
                             child: const TextWidget(
                               text: "Forgot password",
                               color: Color.fromARGB(255, 0, 80, 146),
@@ -116,8 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     BlocConsumer<AuthBloc, AuthState>(
                       listener: (context, state) {
                         if (state is AuthStateError) {
-                          InfoSnackBar.showErrorSnackBar(
-                              context, "Login error: ${state.errorMessage}");
+                          FlushBar(context, state.errorMessage ?? "", "Error").showErrorBar;
                         } else if (state is AuthStateLoginSuccess) {
                           Navigator.pushNamed(context, Routes.home);
                         }

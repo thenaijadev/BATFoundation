@@ -41,7 +41,6 @@ final List<String> nigerianStates = [
 ];
 
 List<DropDownValueModel> states() {
-  final states =
-      nigerianStates.map((e) => DropDownValueModel(name: e, value: e));
+  final states = nigerianStates.map((e) => DropDownValueModel(name: e, value: e));
   return states.toList();
 }

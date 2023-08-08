@@ -1,7 +1,10 @@
+import 'package:bat_foundation/constants.dart/app_colors.dart';
+import 'package:bat_foundation/features/authentication/presentation/Screens/login_screen.dart';
 import 'package:bat_foundation/features/home/presentation/widgets/menu_item.dart';
 import 'package:bat_foundation/router/routes.dart';
 import 'package:bat_foundation/universal.dart/image_widget.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
+import 'package:clean_dialog/clean_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -16,6 +19,36 @@ class _MenuScreenState extends State<MenuScreen> {
   bool light = true;
   bool? checkBoxValueOne = false;
   bool? checkBoxValueTwo = false;
+
+  showAlertDialog(){
+    showDialog(
+      context: context,
+      builder: (context) => CleanDialog(
+        title: 'Log Out',
+        content: "Are you sure you want to sign from BAT Foundation",
+        backgroundColor: AppColors.primary,
+        titleTextStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+        contentTextStyle: const TextStyle(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w400),
+        actions: [
+          CleanDialogActionButtons(
+              actionTitle: 'Confirm',
+              textColor: AppColors.primary,
+              onPressed: (){
+                Navigator.pop(context);
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context)=> const LoginScreen()), (route) => false);
+              }
+          ),
+          CleanDialogActionButtons(
+              actionTitle: 'Cancel',
+              textColor: Colors.red,
+              onPressed: (){
+                Navigator.pop(context);
+              }
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,11 +104,16 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ),
               ),
-              const MenuItem(
-                label: "Change Password",
-                icon: ImageWidget(
-                  name: "password_icon.png",
-                  width: 30,
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushNamed(context, Routes.forgotPassword);
+                },
+                child: const MenuItem(
+                  label: "Change Password",
+                  icon: ImageWidget(
+                    name: "password_icon.png",
+                    width: 30,
+                  ),
                 ),
               ),
               GestureDetector(
@@ -97,11 +135,16 @@ class _MenuScreenState extends State<MenuScreen> {
                   width: 30,
                 ),
               ),
-              const MenuItem(
-                label: "Logout ",
-                icon: ImageWidget(
-                  name: "logout.png",
-                  width: 30,
+              GestureDetector(
+                onTap: (){
+                  showAlertDialog();
+                },
+                child: const MenuItem(
+                  label: "Logout ",
+                  icon: ImageWidget(
+                    name: "logout.png",
+                    width: 30,
+                  ),
                 ),
               ),
               const SizedBox(

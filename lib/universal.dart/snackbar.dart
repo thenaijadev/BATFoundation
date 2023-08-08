@@ -116,15 +116,15 @@ class InfoSnackBar {
     );
   }
 
-  static void showErrorSnackBar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(InfoSnackBar.errorSnackBar(message));
-  }
-
-  static void showSuccessSnackBar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(InfoSnackBar.successSnackBar(message));
-  }
+  // static void showErrorSnackBar(BuildContext context, String message) {
+  //   ScaffoldMessenger.of(context)
+  //       .showSnackBar(InfoSnackBar.errorSnackBar(message));
+  // }
+  //
+  // static void showSuccessSnackBar(BuildContext context, String message) {
+  //   ScaffoldMessenger.of(context)
+  //       .showSnackBar(InfoSnackBar.successSnackBar(message));
+  // }
 
   static void showTicketSnackBar(
       BuildContext context, String title, String subTitle) {

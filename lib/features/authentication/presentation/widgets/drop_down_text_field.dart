@@ -73,15 +73,13 @@ class _DropDownInputState extends State<DropDownInput> {
             ),
           ),
           validator: (value) {
-            if (value == null) {
+            if (value == null || value == "" || value.isEmpty) {
               return "Required field";
             } else {
               return null;
             }
           },
-
           dropDownItemCount: 6,
-
           dropDownList: states(),
           onChanged: widget.onChanged,
         )

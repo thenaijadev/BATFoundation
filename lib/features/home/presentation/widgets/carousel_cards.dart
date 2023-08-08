@@ -1,13 +1,9 @@
+import 'package:bat_foundation/constants.dart/string.dart';
 import 'package:flutter/material.dart';
 
 class CarouselCard extends StatelessWidget {
-  final IconData icon;
-  final String label;
-
   const CarouselCard({
     Key? key,
-    required this.icon,
-    required this.label,
     this.width,
     this.height,
   }) : super(key: key);
@@ -16,46 +12,36 @@ class CarouselCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: Colors.white, width: 4),
-        ),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.cyan.shade200,
-            Colors.purple.shade200,
-          ],
-        ),
-        shadows: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: -2,
-            blurRadius: 16,
-            offset: const Offset(0, 8),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        width: width,
+        height: height,
+        decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+            side: const BorderSide(color: Colors.white, width: 4),
           ),
-        ],
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 81),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(icon, color: Colors.white, size: 48),
-          const SizedBox(height: 12),
-          Text(
-            label,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
+        ),
+        // padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 35),
+        child: Center(child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.network(imagePlaceHolder, fit: BoxFit.cover,height: 120, width: 180))),
+        // Column(
+        //   crossAxisAlignment: CrossAxisAlignment.center,
+        //   children: [
+        //     Icon(icon, color: Colors.white, size: 48),
+        //     const SizedBox(height: 12),
+        //     Text(
+        //       label,
+        //       style: const TextStyle(
+        //         color: Colors.white,
+        //         fontSize: 16,
+        //         fontWeight: FontWeight.w600,
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }

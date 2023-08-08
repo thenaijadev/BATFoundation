@@ -2,10 +2,10 @@ import 'package:bat_foundation/features/authentication/bloc/auth_bloc.dart';
 import 'package:bat_foundation/features/authentication/presentation/widgets/dob_input.dart';
 import 'package:bat_foundation/features/authentication/presentation/widgets/drop_down_text_field.dart';
 import 'package:bat_foundation/features/authentication/presentation/widgets/text_field_widget.dart';
+import 'package:bat_foundation/features/home/presentation/widgets/flush_bar.dart';
 import 'package:bat_foundation/router/routes.dart';
 import 'package:bat_foundation/universal.dart/loader.dart';
 import 'package:bat_foundation/universal.dart/main_btn.dart';
-import 'package:bat_foundation/universal.dart/snackbar.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:bat_foundation/utilities/validators.dart';
 import 'package:flutter/material.dart';
@@ -171,8 +171,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     BlocConsumer<AuthBloc, AuthState>(
                       listener: (context, state) {
                         if (state is AuthStateError) {
-                          InfoSnackBar.showErrorSnackBar(
-                              context, "Login error: ${state.errorMessage}");
+                          FlushBar(context, state.errorMessage ?? "", "Error").showErrorBar;
                         } else if (state is AuthStateRegistrationSuccess) {
                           Navigator.pushNamed(context, Routes.emailSent,
                               arguments: state.message);
@@ -186,10 +185,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                                   if (isValid == true) {
                                     authBloc.add(AuthEventRegister(
                                         email: widget.data["email"]!,
-                                        password: widget.data["email"]!,
-                                        confirmPassword: widget.data["email"]!,
-                                        firstName:
-                                            _textEditingController_1.text,
+                                        password: widget.data["password"]!,
+                                        confirmPassword: widget.data["confirmPassword"]!,
+                                        firstName: _textEditingController_1.text,
                                         lastName: _textEditingController_2.text,
                                         location: location!,
                                         birthDate: date));

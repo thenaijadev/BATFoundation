@@ -6,9 +6,13 @@ class RoutesAndPaths {
   static const String authSignUp = "/api/create";
   static const String authLogin = "/api/login";
 
-  // static const String authSignIn = "/api/auth/sign-in/";
+  //Projects
+  static const String allProjects = "/api/getAllProjects/";
 
-  // static const String forgotPassword = "/api/auth/forgot-password/";
-  // static const String verifyOtpToChangePassword = "/api/auth/verify-otp";
+  //Events
+  static const String allEvents = "/api/getAllEvents";
+
+  //News
+  static const String allNews = "/api/getAllNews/";
   // static const String resetPassword = "/api/auth/reset-password/";
 }

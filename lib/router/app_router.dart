@@ -1,3 +1,4 @@
+import 'package:bat_foundation/features/authentication/presentation/Screens/change_password_screen.dart';
 import 'package:bat_foundation/features/authentication/presentation/Screens/email_sent_screen.dart';
 import 'package:bat_foundation/features/authentication/presentation/Screens/login_screen.dart';
 import 'package:bat_foundation/features/authentication/presentation/Screens/profile_details_screen.dart';
@@ -55,22 +56,29 @@ class AppRouter {
         );
 
       case Routes.mediaItemsCenterDetails:
+        var id = routeSettings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => const MediaCenterDetails(),
+          builder: (_) => MediaCenterDetails(id: id,),
         );
 
       case Routes.eventDetails:
+        var id = routeSettings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => const EventDetails(),
+          builder: (_) => EventDetails(id: id,),
         );
       case Routes.projectDetails:
+        var id = routeSettings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => const ProjectDetails(),
+          builder: (_) => ProjectDetails(id: id,),
         );
 
       case Routes.menu:
         return MaterialPageRoute(
           builder: (_) => const MenuScreen(),
+        );
+      case Routes.forgotPassword:
+        return MaterialPageRoute(
+          builder: (_) => const ChangePassword(),
         );
       default:
         return MaterialPageRoute(
