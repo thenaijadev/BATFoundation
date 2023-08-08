@@ -14,7 +14,7 @@ class MainButton extends StatelessWidget {
         height: 50,
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(10),
           color: AppColors.primary,
         ),
         child: Padding(
@@ -23,7 +23,7 @@ class MainButton extends StatelessWidget {
             child: TextWidget(
               text: label,
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),

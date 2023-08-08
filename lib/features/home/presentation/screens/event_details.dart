@@ -1,3 +1,4 @@
+import 'package:bat_foundation/universal.dart/main_btn.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _EventDetailsState extends State<EventDetails> {
           Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * .6,
+                height: MediaQuery.of(context).size.height * .40,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/events.jpg"),
@@ -34,7 +35,7 @@ class _EventDetailsState extends State<EventDetails> {
             ],
           ),
           Container(
-            height: MediaQuery.of(context).size.height * .55,
+            height: MediaQuery.of(context).size.height * .65,
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.only(
@@ -48,35 +49,64 @@ class _EventDetailsState extends State<EventDetails> {
                   horizontal: 20.0,
                 ),
                 child: ListView(
-                  children: const [
-                    TextWidget(
-                      text:
-                          "BATN foundation wins award of recognition and appreciation from Lagos State government.",
+                  children: [
+                    const TextWidget(
+                      text: "Global Standardization",
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                       textAlign: TextAlign.start,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    const TextWidget(
+                      text:
+                          "Capacity building trains farmers on agricultural practices for maximum yield, involving both participating and non-participating farmers in the project locality. (Still maintain video on app)",
+                      fontSize: 18,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Row(
                       children: [
-                        TextWidget(
-                          text: "Wed 20th July, 2023",
-                          fontSize: 12,
-                        )
+                        Icon(Icons.calendar_month),
+                        TextWidget(text: "Date")
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const TextWidget(text: "Thursday, July 20, 2023"),
+                    const SizedBox(
                       height: 20,
                     ),
-                    TextWidget(
-                      text:
-                          "Capacity building trains farmers on agriculturalpractices for maximum yield, involving bothparticipating and non-participating farmers in the project locality. (Still maintain video on app) Lorem ipsum dolor sit amet consectetur. Volutpat mattis habitasse nunc vulputate ut risus dictum dui. Purus vivamus ut sed orci pellentesque. Mattis ac faucibus platea id quisque. Lorem condimentum vulputate in eget mi blandit nisi mauris.",
-                      fontSize: 18,
-                      textAlign: TextAlign.start,
+                    const Row(
+                      children: [
+                        Icon(Icons.access_time_filled_rounded),
+                        TextWidget(text: "Time")
+                      ],
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const TextWidget(text: "11:00 AM"),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Row(
+                      children: [
+                        Icon(Icons.location_on),
+                        TextWidget(text: "Venue")
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const TextWidget(text: "HQ Ikeja Lagos"),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    MainButton(onTap: () {}, label: "Register")
                   ],
                 ),
               ),
