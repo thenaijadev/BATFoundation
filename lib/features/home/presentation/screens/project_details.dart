@@ -149,13 +149,13 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                       ],
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 20,
                     ),
                     const Row(
                       children: [
                         Icon(
                           Icons.location_on,
-                          size: 14,
+                          size: 20,
                         ),
                         TextWidget(
                           text: "Lagos",
@@ -165,6 +165,13 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     ),
                     const SizedBox(
                       height: 50,
+                    ),
+                    const SizedBox(
+                      height: 50,
+                      child: TextWidget(
+                        text: "Related Projects",
+                        fontSize: 20,
+                      ),
                     ),
                     SizedBox(
                       height: 300, // Adjust the height as needed
