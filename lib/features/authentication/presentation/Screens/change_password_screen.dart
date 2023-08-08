@@ -3,25 +3,28 @@ import 'package:bat_foundation/features/authentication/presentation/widgets/text
 import 'package:bat_foundation/router/routes.dart';
 import 'package:bat_foundation/universal.dart/loader.dart';
 import 'package:bat_foundation/universal.dart/main_btn.dart';
-import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:bat_foundation/universal.dart/snackbar.dart';
+import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:bat_foundation/utilities/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ChangePassword extends StatefulWidget {
+  const ChangePassword({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ChangePassword> createState() => _ChangePasswordState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ChangePasswordState extends State<ChangePassword> {
   final _textEditingController_1 = TextEditingController();
   final _textEditingController_2 = TextEditingController();
+  final _textEditingController_3 = TextEditingController();
+
   final formfieldkey_1 = GlobalKey<FormFieldState>();
 
   final formfieldkey_2 = GlobalKey<FormFieldState>();
+  final formfieldkey_3 = GlobalKey<FormFieldState>();
 
   @override
   void dispose() {
@@ -37,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool obscureText = false;
   @override
   Widget build(BuildContext context) {
-    final authBloc = context.watch<AuthBloc>();
+    // final authBloc = context.read<AuthBloc>();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
@@ -53,10 +56,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 20.0),
-                      child: TextWidget(
-                        text: "Login",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
+                      child: Row(
+                        children: [
+                          Icon(Icons.arrow_back),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          TextWidget(
+                            text: "Change password",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(
@@ -65,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextFieldWidget(
                       fieldKey: formfieldkey_1,
                       controller: _textEditingController_1,
-                      label: "Email address:",
+                      label: "Old Password",
                       validator: (value) {
                         final error = Validator.validateEmail(value!);
 
@@ -96,23 +107,32 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       showVisibility: true,
                       controller: _textEditingController_2,
-                      label: "Password",
+                      label: "New Password",
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_3,
+                      obscureText: obscureText,
+                      validator: (val) {
+                        final error = Validator.validatePassword(val);
+
+                        return error;
+                      },
+                      toggleVisibility: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      onChanged: (val) {
+                        // isValid = formfieldkey_2.currentState?.validate();
+                      },
+                      showVisibility: true,
+                      controller: _textEditingController_3,
+                      label: "Confirm New Password",
                     ),
                     const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, Routes.forgotPassword);
-                            },
-                            child: const TextWidget(
-                              text: "Forgot password",
-                              color: Color.fromARGB(255, 0, 80, 146),
-                            )),
-                      ],
-                    ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -131,36 +151,20 @@ class _LoginScreenState extends State<LoginScreen> {
                             : MainButton(
                                 onTap: () {
                                   if (isValid == true) {
-                                    authBloc.add(AuthEventLogin(
-                                        email:
-                                            formfieldkey_1.currentState?.value,
-                                        password: formfieldkey_2
-                                            .currentState?.value));
+                                    // authBloc.add(AuthEventLogin(
+                                    //     email:
+                                    //         formfieldkey_1.currentState?.value,
+                                    //     password: formfieldkey_2
+                                    //         .currentState?.value));
                                   }
                                 },
-                                label: "Login",
+                                label: "Change password",
                               );
                       },
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
-                      children: [
-                        const TextWidget(
-                          text: "Dont have and account? ",
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, Routes.register);
-                          },
-                          child: const TextWidget(
-                            text: "Register",
-                            color: Color.fromARGB(255, 0, 80, 146),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
               )),
