@@ -4,6 +4,7 @@ import 'package:bat_foundation/features/authentication/presentation/Screens/prof
 import 'package:bat_foundation/features/authentication/presentation/Screens/registration_screen.dart';
 import 'package:bat_foundation/features/home/presentation/screens/contact_us.dart';
 import 'package:bat_foundation/features/home/presentation/screens/home.dart';
+import 'package:bat_foundation/features/home/presentation/screens/media_center_details.dart';
 import 'package:bat_foundation/features/home/presentation/screens/menu.dart';
 import 'package:bat_foundation/features/onboarding/screens/onboarding_screen.dart';
 import 'package:bat_foundation/router/routes.dart';
@@ -49,6 +50,11 @@ class AppRouter {
       case Routes.contactUs:
         return MaterialPageRoute(
           builder: (_) => const ContactUsScreen(),
+        );
+
+      case Routes.mediaItemsCenter:
+        return MaterialPageRoute(
+          builder: (_) => const MediaCenterDetails(),
         );
 
       case Routes.menu:

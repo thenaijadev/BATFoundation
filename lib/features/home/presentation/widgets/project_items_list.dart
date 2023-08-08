@@ -1,8 +1,8 @@
 import 'package:bat_foundation/features/home/presentation/widgets/news_item.dart';
 import 'package:flutter/material.dart';
 
-class NewsItemsList extends StatelessWidget {
-  const NewsItemsList({super.key});
+class ProjectItemsList extends StatelessWidget {
+  const ProjectItemsList({super.key});
 
   @override
   Widget build(BuildContext context) {

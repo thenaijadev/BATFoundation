@@ -1,5 +1,5 @@
 import 'package:anim_search_bar/anim_search_bar.dart';
-import 'package:bat_foundation/features/home/presentation/widgets/news_items_list.dart';
+import 'package:bat_foundation/features/home/presentation/widgets/media_center_items_list.dart';
 import 'package:bat_foundation/universal.dart/text_widget.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -51,7 +51,7 @@ class _MediaCenterScreenState extends State<MediaCenterScreen> {
             ),
           ],
         ),
-        const NewsItemsList()
+        const MediaCenterItemsList()
       ],
     );
   }
