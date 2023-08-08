@@ -1,5 +1,13 @@
-import 'package:bat_foundation/universal.dart/text_widget.dart';
+import 'dart:math';
+
+import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'package:bat_foundation/constants.dart/app_colors.dart';
+import 'package:bat_foundation/universal.dart/text_widget.dart';
+
+import 'package:bat_foundation/features/home/presentation/widgets/carousel_cards.dart';
 
 class ProjectDetails extends StatefulWidget {
   const ProjectDetails({super.key});
@@ -9,6 +17,33 @@ class ProjectDetails extends StatefulWidget {
 }
 
 class _ProjectDetailsState extends State<ProjectDetails> {
+  static const cards = [
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: CarouselCard(
+        icon: Icons.bolt_outlined,
+        label: 'Power',
+      ),
+    ),
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: CarouselCard(icon: Icons.bolt_outlined, label: 'Power'),
+    ),
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: CarouselCard(icon: Icons.bolt_outlined, label: 'Power'),
+    ),
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: CarouselCard(icon: Icons.bolt_outlined, label: 'Power'),
+    ),
+    Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: CarouselCard(icon: Icons.bolt_outlined, label: 'Power'),
+    ),
+  ];
+  final carouselController = PageController(viewportFraction: 0.7);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,6 +165,47 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     ),
                     const SizedBox(
                       height: 50,
+                    ),
+                    SizedBox(
+                      height: 300, // Adjust the height as needed
+                      child: ExpandablePageView.builder(
+                        controller: carouselController,
+                        clipBehavior: Clip.none,
+                        itemCount: cards.length,
+                        itemBuilder: (_, index) {
+                          if (!carouselController.position.haveDimensions) {
+                            return const SizedBox();
+                          }
+                          return AnimatedBuilder(
+                            animation: carouselController,
+                            builder: (_, __) => Transform.scale(
+                              scale: max(
+                                0.4,
+                                (1 -
+                                    (carouselController.page! - index).abs() /
+                                        2),
+                              ),
+                              child: cards[index],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Center(
+                      child: SmoothPageIndicator(
+                        controller: carouselController,
+                        count: 5,
+                        axisDirection: Axis.horizontal,
+                        effect: const SwapEffect(
+                            spacing: 8.0,
+                            radius: 100.0,
+                            dotWidth: 10.0,
+                            dotHeight: 10.0,
+                            paintStyle: PaintingStyle.stroke,
+                            strokeWidth: 1.5,
+                            dotColor: Colors.grey,
+                            activeDotColor: AppColors.primary),
+                      ),
                     ),
                   ],
                 ),

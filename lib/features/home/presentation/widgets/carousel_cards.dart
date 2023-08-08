@@ -8,11 +8,17 @@ class CarouselCard extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.label,
+    this.width,
+    this.height,
   }) : super(key: key);
+  final double? width;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
+      height: height,
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
