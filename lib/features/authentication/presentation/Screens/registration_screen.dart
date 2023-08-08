@@ -34,105 +34,111 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
-          child: Form(
-              child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextWidget(
-                        text: "Register",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                      ),
-                      TextWidget(
-                        text: "Step 1 of 2",
-                        fontSize: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_1,
-                  controller: _textEditingController_1,
-                  label: "Email address",
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_2,
-                  obscureText: obscureText,
-                  toggleVisibility: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
-                  },
-                  showVisibility: true,
-                  controller: _textEditingController_2,
-                  label: "Password",
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_3,
-                  obscureText: obscureText,
-                  toggleVisibility: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
-                  },
-                  showVisibility: true,
-                  controller: _textEditingController_3,
-                  label: "Confirm password",
-                ),
-                const SizedBox(height: 10),
-                const SizedBox(
-                  height: 20,
-                ),
-                MainButton(
-                  onTap: () {
-                    final data = {
-                      "email": _textEditingController_1.text,
-                      "password": _textEditingController_2.text,
-                      "confirmPassword": _textEditingController_3.text,
-                    };
-                    Navigator.pushNamed(context, Routes.profile,
-                        arguments: data);
-                  },
-                  label: "Create account",
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
+          child: Stack(
+            children: [
+              Center(child: Image.asset("assets/images/transparent_logo.png")),
+              Form(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const TextWidget(
-                      text: "Dont have and account? ",
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.login);
-                      },
-                      child: const TextWidget(
-                        text: "Login",
-                        color: Color.fromARGB(255, 0, 80, 146),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextWidget(
+                            text: "Register",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                          TextWidget(
+                            text: "Step 1 of 2",
+                            fontSize: 14,
+                          ),
+                        ],
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_1,
+                      controller: _textEditingController_1,
+                      label: "Email address",
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_2,
+                      obscureText: obscureText,
+                      toggleVisibility: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      showVisibility: true,
+                      controller: _textEditingController_2,
+                      label: "Password",
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_3,
+                      obscureText: obscureText,
+                      toggleVisibility: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      showVisibility: true,
+                      controller: _textEditingController_3,
+                      label: "Confirm password",
+                    ),
+                    const SizedBox(height: 10),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    MainButton(
+                      onTap: () {
+                        final data = {
+                          "email": _textEditingController_1.text,
+                          "password": _textEditingController_2.text,
+                          "confirmPassword": _textEditingController_3.text,
+                        };
+                        Navigator.pushNamed(context, Routes.profile,
+                            arguments: data);
+                      },
+                      label: "Create account",
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        const TextWidget(
+                          text: "Dont have and account? ",
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.login);
+                          },
+                          child: const TextWidget(
+                            text: "Login",
+                            color: Color.fromARGB(255, 0, 80, 146),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
-          )),
+                ),
+              )),
+            ],
+          ),
         ));
   }
 }

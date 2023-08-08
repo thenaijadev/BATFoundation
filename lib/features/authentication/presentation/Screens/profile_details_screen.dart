@@ -79,141 +79,150 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
-          child: Form(
-              child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.arrow_back_rounded)),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextWidget(
-                        text: "Create profile",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                      ),
-                      TextWidget(
-                        text: "Step 2 of 2",
-                        fontSize: 14,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_1,
-                  controller: _textEditingController_1,
-                  label: "First name",
-                  validator: (value) {
-                    final error = Validator.validateText(value, "First name");
-                    return error;
-                  },
-                  onChanged: (value) {
-                    isValid = formfieldkey_1.currentState?.validate();
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_2,
-                  onChanged: (value) {
-                    isValid = formfieldkey_1.currentState?.validate();
-                  },
-                  toggleVisibility: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
-                  },
-                  controller: _textEditingController_2,
-                  label: "Last name",
-                  validator: (value) {
-                    final error = Validator.validateText(value, "Last name");
-                    return error;
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                DropDownInput(
-                  onChanged: (val) {
-                    location = val.value;
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                DateOfBirthInput(
-                  date: date,
-                  onTap: () {
-                    _selectDate(context);
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                BlocConsumer<AuthBloc, AuthState>(
-                  listener: (context, state) {
-                    if (state is AuthStateError) {
-                      InfoSnackBar.showErrorSnackBar(
-                          context, "Login error: ${state.errorMessage}");
-                    } else if (state is AuthStateRegistrationSuccess) {
-                      Navigator.pushNamed(context, Routes.emailSent,
-                          arguments: state.message);
-                    }
-                  },
-                  builder: (context, state) {
-                    return state is AuthStateIsLoading
-                        ? const LoaderWidget()
-                        : MainButton(
-                            onTap: () {
-                              if (isValid == true) {
-                                authBloc.add(AuthEventRegister(
-                                    email: widget.data["email"]!,
-                                    password: widget.data["email"]!,
-                                    confirmPassword: widget.data["email"]!,
-                                    firstName: _textEditingController_1.text,
-                                    lastName: _textEditingController_2.text,
-                                    location: location!,
-                                    birthDate: date));
-                              }
-                            },
-                            label: "Login",
-                          );
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
+          child: Stack(
+            children: [
+              Center(child: Image.asset("assets/images/transparent_logo.png")),
+              Form(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const TextWidget(
-                      text: "Dont have and account? ",
-                    ),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.login);
-                      },
-                      child: const TextWidget(
-                        text: "Register",
-                        color: Color.fromARGB(255, 0, 80, 146),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Icon(Icons.arrow_back_rounded)),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextWidget(
+                            text: "Create profile",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
+                          TextWidget(
+                            text: "Step 2 of 2",
+                            fontSize: 14,
+                          ),
+                        ],
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_1,
+                      controller: _textEditingController_1,
+                      label: "First name",
+                      validator: (value) {
+                        final error =
+                            Validator.validateText(value, "First name");
+                        return error;
+                      },
+                      onChanged: (value) {
+                        isValid = formfieldkey_1.currentState?.validate();
+                      },
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_2,
+                      onChanged: (value) {
+                        isValid = formfieldkey_1.currentState?.validate();
+                      },
+                      toggleVisibility: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      controller: _textEditingController_2,
+                      label: "Last name",
+                      validator: (value) {
+                        final error =
+                            Validator.validateText(value, "Last name");
+                        return error;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    DropDownInput(
+                      onChanged: (val) {
+                        location = val.value;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    DateOfBirthInput(
+                      date: date,
+                      onTap: () {
+                        _selectDate(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    BlocConsumer<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        if (state is AuthStateError) {
+                          InfoSnackBar.showErrorSnackBar(
+                              context, "Login error: ${state.errorMessage}");
+                        } else if (state is AuthStateRegistrationSuccess) {
+                          Navigator.pushNamed(context, Routes.emailSent,
+                              arguments: state.message);
+                        }
+                      },
+                      builder: (context, state) {
+                        return state is AuthStateIsLoading
+                            ? const LoaderWidget()
+                            : MainButton(
+                                onTap: () {
+                                  if (isValid == true) {
+                                    authBloc.add(AuthEventRegister(
+                                        email: widget.data["email"]!,
+                                        password: widget.data["email"]!,
+                                        confirmPassword: widget.data["email"]!,
+                                        firstName:
+                                            _textEditingController_1.text,
+                                        lastName: _textEditingController_2.text,
+                                        location: location!,
+                                        birthDate: date));
+                                  }
+                                },
+                                label: "Login",
+                              );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        const TextWidget(
+                          text: "Dont have and account? ",
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.login);
+                          },
+                          child: const TextWidget(
+                            text: "Register",
+                            color: Color.fromARGB(255, 0, 80, 146),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
-          )),
+                ),
+              )),
+            ],
+          ),
         ));
   }
 }

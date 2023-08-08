@@ -41,121 +41,128 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
-          child: Form(
-              child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                  child: TextWidget(
-                    text: "Login",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_1,
-                  controller: _textEditingController_1,
-                  label: "Email address:",
-                  validator: (value) {
-                    final error = Validator.validateEmail(value!);
-
-                    return error;
-                  },
-                  onChanged: (val) {
-                    isValid = formfieldkey_1.currentState?.validate();
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextFieldWidget(
-                  fieldKey: formfieldkey_2,
-                  obscureText: obscureText,
-                  validator: (val) {
-                    final error = Validator.validatePassword(val);
-
-                    return error;
-                  },
-                  toggleVisibility: () {
-                    setState(() {
-                      obscureText = !obscureText;
-                    });
-                  },
-                  onChanged: (val) {
-                    // isValid = formfieldkey_2.currentState?.validate();
-                  },
-                  showVisibility: true,
-                  controller: _textEditingController_2,
-                  label: "Password",
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+          child: Stack(
+            children: [
+              Center(child: Image.asset("assets/images/transparent_logo.png")),
+              Form(
+                  child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(
-                        onTap: () {},
-                        child: const TextWidget(
-                          text: "Forgot password",
-                          color: Color.fromARGB(255, 0, 80, 146),
-                        )),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                BlocConsumer<AuthBloc, AuthState>(
-                  listener: (context, state) {
-                    if (state is AuthStateError) {
-                      InfoSnackBar.showErrorSnackBar(
-                          context, "Login error: ${state.errorMessage}");
-                    } else if (state is AuthStateLoginSuccess) {
-                      Navigator.pushNamed(context, Routes.home);
-                    }
-                  },
-                  builder: (context, state) {
-                    return state is AuthStateIsLoading
-                        ? const LoaderWidget()
-                        : MainButton(
-                            onTap: () {
-                              if (isValid == true) {
-                                authBloc.add(AuthEventLogin(
-                                    email: formfieldkey_1.currentState?.value,
-                                    password:
-                                        formfieldkey_2.currentState?.value));
-                              }
-                            },
-                            label: "Login",
-                          );
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    const TextWidget(
-                      text: "Dont have and account? ",
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.register);
-                      },
-                      child: const TextWidget(
-                        text: "Register",
-                        color: Color.fromARGB(255, 0, 80, 146),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: TextWidget(
+                        text: "Login",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_1,
+                      controller: _textEditingController_1,
+                      label: "Email address:",
+                      validator: (value) {
+                        final error = Validator.validateEmail(value!);
+
+                        return error;
+                      },
+                      onChanged: (val) {
+                        isValid = formfieldkey_1.currentState?.validate();
+                      },
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    TextFieldWidget(
+                      fieldKey: formfieldkey_2,
+                      obscureText: obscureText,
+                      validator: (val) {
+                        final error = Validator.validatePassword(val);
+
+                        return error;
+                      },
+                      toggleVisibility: () {
+                        setState(() {
+                          obscureText = !obscureText;
+                        });
+                      },
+                      onChanged: (val) {
+                        // isValid = formfieldkey_2.currentState?.validate();
+                      },
+                      showVisibility: true,
+                      controller: _textEditingController_2,
+                      label: "Password",
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                            onTap: () {},
+                            child: const TextWidget(
+                              text: "Forgot password",
+                              color: Color.fromARGB(255, 0, 80, 146),
+                            )),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    BlocConsumer<AuthBloc, AuthState>(
+                      listener: (context, state) {
+                        if (state is AuthStateError) {
+                          InfoSnackBar.showErrorSnackBar(
+                              context, "Login error: ${state.errorMessage}");
+                        } else if (state is AuthStateLoginSuccess) {
+                          Navigator.pushNamed(context, Routes.home);
+                        }
+                      },
+                      builder: (context, state) {
+                        return state is AuthStateIsLoading
+                            ? const LoaderWidget()
+                            : MainButton(
+                                onTap: () {
+                                  if (isValid == true) {
+                                    authBloc.add(AuthEventLogin(
+                                        email:
+                                            formfieldkey_1.currentState?.value,
+                                        password: formfieldkey_2
+                                            .currentState?.value));
+                                  }
+                                },
+                                label: "Login",
+                              );
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        const TextWidget(
+                          text: "Dont have and account? ",
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.register);
+                          },
+                          child: const TextWidget(
+                            text: "Register",
+                            color: Color.fromARGB(255, 0, 80, 146),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
-          )),
+                ),
+              )),
+            ],
+          ),
         ));
   }
 }
